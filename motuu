@@ -1,0 +1,66 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+// Function to display a romantic message
+void displayRomanticMessage(const std::string& message) {
+    std::cout << "💕 " << message << " 💕" << std::endl;
+}
+
+// Function to display a virtual flower
+void displayFlower() {
+    std::cout << "🌹" << std::endl;
+}
+
+int main() {
+    std::string yourName, partnerName;
+    std::vector<std::string> romanticMessages = {
+        "You are the light of my life.",
+        "I'm grateful for every moment we spend together.",
+        "Your smile makes my heart skip a beat.",
+        "I love you more than words can express.",
+        "You complete me.",
+        "You are the most beautiful person I know.",
+        "I am lucky to have you in my life.",
+        "You make me want to be a better person.",
+        "My heart belongs to you.",
+        "I cherish every memory we create together.",
+        "I will love you forever and always."
+    };
+
+    std::cout << "Enter your name: ";
+    std::getline(std::cin, yourName);
+
+    std::cout << "Enter your partner's name: ";
+    std::getline(std::cin, partnerName);
+
+    std::cout << "Welcome, " << yourName << " and " << partnerName << "!" << std::endl;
+
+    char choice;
+    do {
+        std::cout << "\nChoose an option:\n";
+        std::cout << "1. View romantic message\n";
+        std::cout << "2. Send a virtual flower\n";
+        std::cout << "3. Exit\n";
+        std::cout << "Your choice: ";
+        std::cin >> choice;
+
+        switch (choice) {
+        case '1':
+            displayRomanticMessage(romanticMessages[rand() % romanticMessages.size()]);
+            break;
+        case '2':
+            displayFlower();
+            std::cout << "A virtual flower for you, " << partnerName << "!" << std::endl;
+            break;
+        case '3':
+            std::cout << "Goodbye, " << yourName << " and " << partnerName << "! 💖" << std::endl;
+            break;
+        default:
+            std::cout << "Invalid choice. Please try again.\n";
+        }
+
+    } while (choice != '3');
+
+    return 0;
+}
